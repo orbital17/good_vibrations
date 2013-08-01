@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>String equation</title>
+        <style type="text/css">
+            .latex_row
+            {
+                margin: 10px auto;
+                display: block;
+            }
+        </style>
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="static/jquery.min.js"></script>
+        <!-- bootstrap -->
+        <link rel="stylesheet" type="text/css" href="static/bootstrap.min.css">
+        <script type="text/javascript" src="static/bootstrap.min.js"></script>
+        <!-- slider -->
+        <link rel="stylesheet" type="text/css" href="static/slider/slider.css">
+        <script type="text/javascript" src="static/slider/bootstrap-slider.js"></script>
+        <!-- main javascript -->
+        <script type="text/javascript" src="static/oscillmain.js"></script>
+
+    </head>
+    <body>
+        <div class="container" style="padding: 20px;">
+            <div class="row">
+                <div class="span4">
+
+                    <table>
+
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?u_0(x)=" /> </td>
+                        <td><input id="u0" value="-0.01*sin(pi*x)"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?\overline{u_0}(x)="/></td>
+                        <td><input id="du0" value="0"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?\mu_1(t)=" /></td>
+                        <td><input id="mu1" value="0"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?\mu_2(t)=" /></td>
+                        <td><input id="mu2" value="0"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?f(x,t)=" /></td>
+                        <td><input id="f" value="100 if t<0.05 else 0"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?a=" /></td>
+                        <td><input id="a" value="20"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?l=" /></td>
+                        <td><input id="l" value="1"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?T=" /></td>
+                        <td><input id="T" value="2"/></td>
+                    </tr>
+                    <tr hidden>
+                        <td align="right"><img src="http://latex.codecogs.com/gif.latex?\sigma=" /></td>
+                        <td><input id="sigma" value="0.5"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a class="btn btn-success" onclick="getData()" style="margin-top: 5px;">Порахувати</a></td>
+                    </tr>
+                    </table>
+
+                    <div id="latex_rows">
+                        <img class="latex_row"
+                        src="http://latex.codecogs.com/gif.latex?\frac{\partial^2 u}{\partial t^2}=a^2 \frac{\partial^2 u}{\partial x^2}+f(x,t)"/>
+                        <img class="latex_row" src="http://latex.codecogs.com/gif.latex?0<x<l"/>
+                        <img class="latex_row" src="http://latex.codecogs.com/gif.latex?0<t<T"/>
+                        <img class="latex_row" src="http://latex.codecogs.com/gif.latex?u(x,0)=u_0(x)"/>
+                        <img class="latex_row" src="http://latex.codecogs.com/gif.latex?\frac{\partial u(x,0)}{\partial t}=\overline{u_0}(x)"/>
+                        <img class="latex_row" src="http://latex.codecogs.com/gif.latex?u(0,t)=\mu_1(t)"/>
+                        <img class="latex_row" src="http://latex.codecogs.com/gif.latex?u(l,t)=\mu_2(t)"/>
+                    </div>
+                </div>
+                <div class="span5">
+                    <div style="margin-bottom: 25px;">
+                        <canvas id="graphCanvas" width="540" height="400"/>
+                    </div>
+                    <div class="slider slider-horizontal" id="sld" style="width: 540px;">
+
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <a class="btn span1 offset2" onclick="play()">Play</a>
+                        <a class="btn span1" onclick="pause()">Pause</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>
